@@ -1,0 +1,80 @@
+\section{Equipment}
+
+\begin{center}
+        \begin{tabular}{|p{0.15\textwidth}|p{0.15\textwidth}|p{0.025\textwidth}|p{0.275\textwidth}|p{0.25\textwidth}|}
+        \rowcolor{black}  \multicolumn{5}{|c|}{\textbf{\color{white}Backline \& Equipment}} \\
+        \hline
+        \rowcolor{black!15} Fabian & {Gitarre} &  &  & \\
+        \hline
+        && \guitarAmpAmount x & Marshall DSL20CR & \ifthenelse{\boolean{guitarAmp}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \guitarEffectPedalAmount x & Cry-Baby-Wah-Pedal & \ifthenelse{\boolean{guitarEffectPedal}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \guitarAmpMicAmount x & Sennheiser E 906 & \ifthenelse{\boolean{guitarAmpMic}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        \rowcolor{black!15} Benjamin & Keys &  &  & \\
+        \hline
+         && \keysKeyboardAmount x & Keyboard & \ifthenelse{\boolean{keysKeyboard}}{bringen wir mit}{bringen wir nicht mit} \\
+         \hline
+         && \keysActiveDiAmount x & Active DI & \ifthenelse{\boolean{keysActiveDi}}{bringen wir mit}{bringen wir nicht mit} \\
+         \hline
+        \rowcolor{black!15} Eric & Bass &  &  & \\
+        \hline
+         && \bassAmpAmount x & Fender Rumble 100 & \ifthenelse{\boolean{bassAmp}}{bringen wir mit}{bringen wir nicht mit} \\
+         \hline
+        \rowcolor{black!15} Georg & Drums &  &  & \\
+        \hline
+         && \drumsSnareAmount x & Snare & \ifthenelse{\boolean{drumsSnare}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsHiHatAmount x & HiHat & \ifthenelse{\boolean{drumsHiHat}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsRideAmount x & Ride & \ifthenelse{\boolean{drumsRide}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsCrashAmount x & Crash & \ifthenelse{\boolean{drumsCrash}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsChinaAmount x & China & \ifthenelse{\boolean{drumsChina}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsSplashAmount x & Splash & \ifthenelse{\boolean{drumsSplash}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsPedalAmount x & Kickdrum Pedal & \ifthenelse{\boolean{drumsPedal}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsKickAmount x & Kickdrum & \ifthenelse{\boolean{drumsKick}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsRackTomAmount x & Rack Tom & \ifthenelse{\boolean{drumsRackTom}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsFloorTomAmount x & Floor Tom & \ifthenelse{\boolean{drumsFloorTom}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsRugAmount x & Schlagzeugteppich (2m*1,6m) & \ifthenelse{\boolean{drumsRug}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsKickMicAmount x & Kick-Mic \newline (beyerdynamic~TG~D71) & \ifthenelse{\boolean{drumsKickMic}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsSnareMicAmount x & Snare-Mic \newline (beyerdynamic~TG~D58c) & \ifthenelse{\boolean{drumsSnareMic}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsTomMicAmount x & Tom-Mic \newline (beyerdynamic~TG~D35d)& \ifthenelse{\boolean{drumsTomMic}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        && \drumsOhMicAmount x & OH-Mic \newline (beyerdynamic~TG~I53c) & \ifthenelse{\boolean{drumsOhMic}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        \rowcolor{black}  \multicolumn{5}{|c|}{\textbf{\color{white}Vocals}} \\
+        \hline
+        Fabian & Vox Main & \vocalsFabianAmount x & Shure SM58 & \ifthenelse{\boolean{vocalsFabian}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Benjamin & Vox Back 1 & \vocalsBenjaminAmount x & Shure SM58 (Klon) & \ifthenelse{\boolean{vocalsBenjamin}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Eric & Vox Back 2 & \vocalsEricAmount x & Shure SM58 (Klon) & \ifthenelse{\boolean{vocalsEric}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        \rowcolor{black}  \multicolumn{5}{|c|}{\textbf{\color{white}Monitoring}} \\
+        \hline
+        && \monitoringMixerAmount x & IEM-Rack \newline (Passiv-Split) & \ifthenelse{\boolean{monitoringMixer}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Fabian && \monitoringFabianAmount x & IEM-Funk & \ifthenelse{\boolean{monitoringFabian}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Benjamin && \monitoringBenjaminAmount x & IEM-Funk & \ifthenelse{\boolean{monitoringBenjamin}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Eric && \monitoringEricAmount x & IEM-Funk & \ifthenelse{\boolean{monitoringEric}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        Georg && \monitoringGeorgAmount x & IEM-Kabelgebunden & \ifthenelse{\boolean{monitoringGeorg}}{bringen wir mit}{bringen wir nicht mit} \\
+        \hline
+        \multicolumn{5}{|p{0.95\textwidth}|}{Signalweg in Abbildung beschrieben. \newline Bei Nutzung unserer Mikrofone \& DI, benötigen wir nur Line-Check für Monitoring. \newline Anderenfalls benötigen wir einen Soundcheck für Monitoring.} \\
+        \hline
+    \end{tabular}
+\end{center}
