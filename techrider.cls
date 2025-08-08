@@ -11,6 +11,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{svg}
+\svgpath{{Images/}}
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage[german]{babel}
 \RequirePackage[table]{xcolor}
@@ -22,7 +23,7 @@
 \renewcommand*\familydefault{\sfdefault}
 
 % Geometry setup
-\geometry{a4paper, margin=1in}
+\geometry{a4paper, margin=1in, headheight=38.31pt}
 
 % Custom section formatting
 \titleformat{\section}{\large\bfseries\sffamily\color{darkgray}}{}{0em}{}
