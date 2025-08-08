@@ -59,3 +59,6 @@ Thumbs.db
 
 # PDF Files
 *.pdf
+
+# Folders
+/out_dir/*

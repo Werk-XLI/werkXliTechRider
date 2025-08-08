@@ -11,7 +11,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{svg}
-\svgpath{{Images/}}
+\svgpath{./Images/}
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage[german]{babel}
 \RequirePackage[table]{xcolor}
