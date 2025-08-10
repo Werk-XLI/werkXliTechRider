@@ -12,9 +12,9 @@ jobs:
           root_file: main.tex
           latexmk_use_lualatex: true
           latexmk_shell_escape: true
-          extra_system_packages: inkscape
+          extra_system_packages: inkscape coreutils findutils bash ncurses-bin
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: main.pdf
+          path: out_dir/main.pdf
