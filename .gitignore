@@ -59,6 +59,7 @@ Thumbs.db
 
 # PDF Files
 *.pdf
+!logo_svg-tex.pdf
 
 # Folders
 /out_dir/*
