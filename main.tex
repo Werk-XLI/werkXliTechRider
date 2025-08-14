@@ -1,24 +1,167 @@
-\documentclass{techrider}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                               %
+%                     WERK XLI TECH RIDER - MAIN FILE                           %
+%                                                                               %
+% Configure your equipment setup and language preference here                   %
+%                                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CONFIGURATION                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% CHOOSE YOUR SETUP (one of: small, standard, large)
+% - small:     Intimate venues, clubs, reduced equipment setup
+% - standard:  Band brings most equipment (recommended)  
+% - large:     Concert halls, festivals, complete setup with backups
+
+\documentclass[standard]{techrider}  % MODIFY THIS LINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              BAND INFORMATION                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% UPDATE YOUR BAND INFORMATION HERE:
 
 \bandname{Werk XLI}
-\contactinfo{Georg Kranz, technik@werkxli.de, 0175~5307552}
+\contactinfo{%
+    Georg Kranz \\
+    Telefon: +49 175 5307552 \\
+    E-Mail: technik@werkxli.de
+}
+\setuptime{min. 30 Minuten}
+\loadintime{2 Stunden vor der Show}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              LOGO (OPTIONAL)                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Add your logo if available:
+\logo{\includesvg[width=0.25\textwidth]{Images/logo.svg}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              EQUIPMENT OVERRIDES                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Override preset settings if needed:
+% \equipmentOverride{bringKickDrum}{true}       % Force bring kick drum
+% \equipmentOverride{bringGuitarAmp}{false}     % Don't bring guitar amp
+% \equipmentOverride{bringBassDI}{true}         % Always bring bass DI
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CONFIGURATION LOADING                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Load all configurations from separate files
+% (modify equipmentConfig.tex and channelConfig.tex to customize)
+
+\useStandardEquipment                    % Load equipment from equipmentConfig.tex
+\useStandardChannels                     % Load FOH and IEM channels from channelConfig.tex  
+\useStandardVenueRequirements           % Load venue requirements from channelConfig.tex
+
+% CHOOSE YOUR STAGE PLOT (uncomment one):
+\useStandardStagePlot                   % Standard rock band setup
+% \useFestivalStagePlot                 % Large festival setup
+% \useAcousticStagePlot                 % Acoustic/unplugged setup
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              DOCUMENT BEGINS                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-\input{equipmentConfig} %see equipmentConfig.tex to edit equipment table
-
 \maketitle
 
-\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              EQUIPMENT LISTS                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\section{Ausrüstungslisten}
 
-\input{introduction}
+\subsection{Von der Band mitgebrachte Ausrüstung}
 
-\input{equipment}
+Die folgende Ausrüstung wird von der Band mitgebracht:
 
-\input{signalPath}
+\bandEquipmentTable
 
-\input{stageplot}
+\subsection{Von der Location benötigte Ausrüstung}  
+
+Die Location muss folgendes bereitstellen:
+
+\venueRequirementsTable
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              PATCH PLAN                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Patch-Plan}
+
+Der Patch-Plan beschreibt den Signalflow von der Audioquelle durch unser IEM-/Stage-Rack bis FOH. \\
+In unserem IEM-/Stage-Rack sind 2 8-Kanal-Passiv-Splitter verbaut, die die Signale zum einen in unser Monitor-Mischpult und zum anderen an FOH weiterleiten. \\
+Phantomspeisung für Mikrofone und DI-Boxen wird hier durch unser Monitor-Mischpult bereitgestellt.
+
+\subsection{Kanäle für Stage-Rack}
+
+Signale, die in unser IEM-/Stage-Rack fließen:
+
+\inputChannelsTable
+
+\subsection{Kanäle für FOH}
+
+Signale, die aus unserem IEM-/Stage-Rack fließen:
+
+\outputChannelsTable
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              STAGE PLOT                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Bühnenplan}
+
+\drawStagePlot
+
+\textbf{Legende:}
+\begin{itemize}
+    \item Stromanschlüsse benötigt bei rotem Kreis
+    \item Musikerpositionen wie gezeigt  
+    \item Mindest-Bühnenmasse: 6 m × 4 m
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              ADDITIONAL REQUIREMENTS                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zusätzliche Anforderungen}
+
+\subsection{Tontechnik}
+\begin{itemize}
+    \item FOH-Mischpult mit minimum 16 Eingangskanälen
+    \item ein für die Größe der Location geeignetes PA-System
+\end{itemize}
+
+\subsection{Bühnenaufbau}
+\begin{itemize}
+    \item Bühnenmasse: minimum 6 m (Breite) x 4 m (Tiefe)
+    \item Strom: \totalPowerNeeded\ x Schuko (230V) Steckdosen auf der Bühne
+    \item Mikrofonstative: 6x Galgen-Stative, 2x gerade Stative
+    \item angemessene Bühnenbeleuchtung (Performance und Arbeitslicht)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CONTACT INFORMATION                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Kontaktinformationen}
+
+\textbf{Technischer Kontakt der Band:}\\
+\printcontactinfo
+
+\textbf{Am Veranstaltungstag:}
+\begin{itemize}
+    \item Load-in: \printloadintime
+    \item Aufbau-Dauer: \printsetuptime
+    \item Soundcheck: 30 Minuten nach Aufbau-Abschluss
+    \item Bitte technischen Ansprechpartner der Location während Load-in verfügbar halten
+\end{itemize}
 
 \end{document}

@@ -1,142 +1,237 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                       %
-%   set values true if provided by us   %
-%   and true if expected from venue    %
-%                                       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           EQUIPMENT CONFIGURATION                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file contains all equipment definitions organized by instrument categories
+% Modify this file to customize what equipment the band brings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for guitar           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{guitarAmp}
-\setboolean{guitarAmp}{true}
-\newcommand{\guitarAmpAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              BAND EQUIPMENT DEFINITION                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{guitarEffectPedal}
-\setboolean{guitarEffectPedal}{true}
-\newcommand{\guitarEffectPedalAmount}{1}
+% Main command that defines all band equipment
+\newcommand{\allBandEquipment}{%
+    % Add your equipment here using the format:
+    % \equipmentItem{Category}{Equipment Name}{Details/Model}{Power Requirement}
+    % 
+    % Available categories: Drums, Guitar, Bass, Keys, Vocals, Tracks, Monitoring, System
+    % Power requirements: 230V, No, USB Power, etc.
+    %
+    % Examples:
+    % \equipmentItem{Guitar}{Guitar Amp}{Marshall DSL40CR 40W Combo}{230V}
+    % \equipmentItem{Tracks}{Backing Track Player}{MacBook Pro with Ableton Live}{230V}
+}
 
-\newboolean{guitarAmpMic}
-\setboolean{guitarAmpMic}{true}
-\newcommand{\guitarAmpMicAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              DRUMS EQUIPMENT                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for keys             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{keysKeyboard}
-\setboolean{keysKeyboard}{true}
-\newcommand{\keysKeyboardAmount}{1}
+\newcommand{\drumsEquipment}{%
+    \ifbool{bringKickDrum}{%
+        \equipmentItem{Drums}{Kick Drum}{Pearl Masters MMX 22"x18"}{No}
+    }{}
+    
+    \ifbool{bringSnare}{%
+        \equipmentItem{Drums}{Snare Drum}{Pearl Masters MMX 14"x5.5"}{No}
+    }{}
+    
+    \ifbool{bringToms}{%
+        \equipmentItem{Drums}{Tom Set}{Pearl Masters MMX - 10", 12", 16"}{No}
+    }{}
+    
+    \ifbool{bringCymbals}{%
+        \equipmentItem{Drums}{Cymbal Set}{Sabian AAX Series - Hi-Hat, Crash, Ride}{No}
+    }{}
+    
+    \ifbool{bringKickMic}{%
+        \equipmentItem{Drums}{Kick Drum Mic}{Shure Beta 52A}{No}
+    }{}
+    
+    \ifbool{bringSnareMic}{%
+        \equipmentItem{Drums}{Snare Mic}{Shure SM57}{No}
+    }{}
+    
+    \ifbool{bringTomMics}{%
+        \equipmentItem{Drums}{Tom Mics}{3x Sennheiser e604}{No}
+    }{}
+    
+    \ifbool{bringOverheadMics}{%
+        \equipmentItem{Drums}{Overhead Mics}{2x Rode M5 Matched Pair}{No}
+    }{}
+    
+    \ifbool{bringHiHatMic}{%
+        \equipmentItem{Drums}{Hi-Hat Mic}{Audio-Technica ATM450}{No}
+    }{}
+}
 
-\newboolean{keysActiveDi}
-\setboolean{keysActiveDi}{true}
-\newcommand{\keysActiveDiAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              GUITAR EQUIPMENT                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for bass             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{bassAmp}
-\setboolean{bassAmp}{true}
-\newcommand{\bassAmpAmount}{1}
+\newcommand{\guitarEquipment}{%
+    \ifthenelse{\boolean{bringGuitarAmp}}{%
+        \equipmentItem{Guitar}{Guitar Amp}{Marshall DSL40CR 40W Combo}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringGuitarMic}}{%
+        \equipmentItem{Guitar}{Guitar Amp Mic}{Shure SM57}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringGuitarCabinet}}{%
+        \equipmentItem{Guitar}{Guitar Cabinet}{Marshall 4x12" 1960A Cabinet}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringGuitarHead}}{%
+        \equipmentItem{Guitar}{Guitar Head}{Marshall DSL100H 100W Head}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringGuitarDI}}{%
+        \equipmentItem{Guitar}{Guitar DI}{Radial J48 Active DI}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringGuitarPedals}}{%
+        \equipmentItem{Guitar}{Effects Pedals}{Boss Pedalboard + Power Supply}{230V}
+    }{}
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for drums            %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{drumsSnare}
-\setboolean{drumsSnare}{true}
-\newcommand{\drumsSnareAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              BASS EQUIPMENT                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{drumsHiHat}
-\setboolean{drumsHiHat}{true}
-\newcommand{\drumsHiHatAmount}{1}
+\newcommand{\bassEquipment}{%
+    \ifthenelse{\boolean{bringBassAmp}}{%
+        \equipmentItem{Bass}{Bass Amp}{Ampeg SVT-3PRO + 410HLF Cabinet}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringBassDI}}{%
+        \equipmentItem{Bass}{Bass DI}{Radial J48 Active DI}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringBassHead}}{%
+        \equipmentItem{Bass}{Bass Head}{Ampeg SVT-3PRO 450W Head}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringBassCabinet}}{%
+        \equipmentItem{Bass}{Bass Cabinet}{Ampeg SVT-410HLF 4x10" Cabinet}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringBassMic}}{%
+        \equipmentItem{Bass}{Bass Amp Mic}{Shure Beta 52A}{No}
+    }{}
+}
 
-\newboolean{drumsRide}
-\setboolean{drumsRide}{true}
-\newcommand{\drumsRideAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              KEYBOARDS EQUIPMENT                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{drumsCrash}
-\setboolean{drumsCrash}{true}
-\newcommand{\drumsCrashAmount}{2}
+\newcommand{\keyboardsEquipment}{%
+    \ifthenelse{\boolean{bringKeyboard}}{%
+        \equipmentItem{Keys}{Main Keyboard}{Nord Stage 3 88-key}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringKeyboard2}}{%
+        \equipmentItem{Keys}{Second Keyboard}{Roland Fantom-08}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringKeysDI}}{%
+        \equipmentItem{Keys}{Keyboard DI}{2x Radial ProDI Passive DI}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringKeysStand}}{%
+        \equipmentItem{Keys}{Keyboard Stand}{K&M 18820 X-Stand}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringKeysStool}}{%
+        \equipmentItem{Keys}{Keyboard Bench}{K&M 14085 Bench}{No}
+    }{}
+}
 
-\newboolean{drumsChina}
-\setboolean{drumsChina}{true}
-\newcommand{\drumsChinaAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              VOCALS EQUIPMENT                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{drumsSplash}
-\setboolean{drumsSplash}{true}
-\newcommand{\drumsSplashAmount}{1}
+\newcommand{\vocalsEquipment}{%
+    \ifthenelse{\boolean{bringMainVocalMic}}{%
+        \equipmentItem{Vocals}{Main Vocal Mic}{Shure SM58}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringBackingVocalMics}}{%
+        \equipmentItem{Vocals}{Backing Vocal Mics}{2x Shure Beta 58A}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringVocalProcessor}}{%
+        \equipmentItem{Vocals}{Vocal Processor}{TC-Helicon VoiceLive 3}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringHarmonicaRack}}{%
+        \equipmentItem{Vocals}{Harmonica Rack}{Custom Harmonica Holder}{No}
+    }{}
+}
 
-\newboolean{drumsPedal}
-\setboolean{drumsPedal}{true}
-\newcommand{\drumsPedalAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              MONITORING EQUIPMENT                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{drumsKick}
-\setboolean{drumsKick}{true}
-\newcommand{\drumsKickAmount}{1}
+\newcommand{\monitoringEquipment}{%
+    \ifthenelse{\boolean{bringIEMRack}}{%
+        \equipmentItem{Monitoring}{IEM Rack System}{Sennheiser G4 4-Channel Rack}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringIEMTransmitters}}{%
+        \equipmentItem{Monitoring}{IEM Transmitters}{4x Sennheiser SR 300 G4 IEM}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringIEMReceivers}}{%
+        \equipmentItem{Monitoring}{IEM Receivers}{4x Sennheiser EK 300 G4 Bodypack}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringIEMEarbuds}}{%
+        \equipmentItem{Monitoring}{IEM Earphones}{4x Shure SE215 In-Ear Monitors}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringHeadphoneAmp}}{%
+        \equipmentItem{Monitoring}{Headphone Amp}{Behringer HA4700 4-Ch Amp}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringPersonalMonitor}}{%
+        \equipmentItem{Monitoring}{Personal Monitor}{Mackie SRM350v3 Active Monitor}{230V}
+    }{}
+}
 
-\newboolean{drumsRackTom}
-\setboolean{drumsRackTom}{true}
-\newcommand{\drumsRackTomAmount}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              SYSTEM EQUIPMENT                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{drumsFloorTom}
-\setboolean{drumsFloorTom}{true}
-\newcommand{\drumsFloorTomAmount}{2}
-
-\newboolean{drumsRug}
-\setboolean{drumsRug}{true}
-\newcommand{\drumsRugAmount}{1}
-
-\newboolean{drumsKickMic}
-\setboolean{drumsKickMic}{true}
-\newcommand{\drumsKickMicAmount}{\drumsKickAmount}
-
-\newboolean{drumsSnareMic}
-\setboolean{drumsSnareMic}{true}
-\newcommand{\drumsSnareMicAmount}{\drumsSnareAmount}
-
-\newboolean{drumsTomMic}
-\setboolean{drumsTomMic}{true}
-\newcommand{\drumsTomMicAmount}{\the\numexpr \drumsRackTomAmount + \drumsFloorTomAmount \relax}
-
-\newboolean{drumsOhMic}
-\setboolean{drumsOhMic}{true}
-\newcommand{\drumsOhMicAmount}{2}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for vocals           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{vocalsFabian}
-\setboolean{vocalsFabian}{true}
-\newcommand{\vocalsFabianAmount}{1}
-
-\newboolean{vocalsBenjamin}
-\setboolean{vocalsBenjamin}{true}
-\newcommand{\vocalsBenjaminAmount}{1}
-
-\newboolean{vocalsEric}
-\setboolean{vocalsEric}{true}
-\newcommand{\vocalsEricAmount}{1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Values for monitoring       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newboolean{monitoringMixer}
-\setboolean{monitoringMixer}{true}
-\newcommand{\monitoringMixerAmount}{1}
-
-\newboolean{monitoringFabian}
-\setboolean{monitoringFabian}{true}
-\newcommand{\monitoringFabianAmount}{1}
-
-\newboolean{monitoringBenjamin}
-\setboolean{monitoringBenjamin}{true}
-\newcommand{\monitoringBenjaminAmount}{1}
-
-\newboolean{monitoringEric}
-\setboolean{monitoringEric}{true}
-\newcommand{\monitoringEricAmount}{1}
-
-\newboolean{monitoringGeorg}
-\setboolean{monitoringGeorg}{true}
-\newcommand{\monitoringGeorgAmount}{1}
-
-%TODO: variablen für equipment-namen/label und bool-werte generisch machen
+\newcommand{\systemEquipment}{%
+    \ifthenelse{\boolean{bringMixingDesk}}{%
+        \equipmentItem{System}{Mixing Desk}{Yamaha MG16XU 16-Ch Mixer}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringPA}}{%
+        \equipmentItem{System}{PA System}{2x Mackie SRM450v3 + Subwoofer}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringSnake}}{%
+        \equipmentItem{System}{Snake/Stage Box}{16-Ch XLR Snake 30m}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringPowerDistro}}{%
+        \equipmentItem{System}{Power Distribution}{6-Way Schuko Power Strip}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringCables}}{%
+        \equipmentItem{System}{Cable Set}{Assorted XLR \& Instrument Cables}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringLights}}{%
+        \equipmentItem{System}{Basic Lighting}{4x LED Par Cans + Controller}{230V}
+    }{}
+    
+    \ifthenelse{\boolean{bringExtensionCables}}{%
+        \equipmentItem{System}{Extension Cables}{Assorted Power Extensions}{No}
+    }{}
+    
+    \ifthenelse{\boolean{bringGafferTape}}{%
+        \equipmentItem{System}{Gaffer Tape}{Cable Management Materials}{No}
+    }{}
+}
