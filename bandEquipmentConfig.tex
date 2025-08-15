@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           EQUIPMENT CONFIGURATION                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file contains all equipment definitions organized by instrument categories
+% Modify this file to customize what equipment the band brings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              BAND EQUIPMENT DEFINITION                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Main command that defines all band equipment
+\newcommand{\bandEquipmentTable}{%
+    \begin{center}
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|l|l|p{4cm}|c|}
+            \hline
+            \rowcolor{systemcolor}
+            \subsectionstyle{Kategorie}           & \subsectionstyle{Equipment} & \subsectionstyle{Details}                           & \subsectionstyle{Power} \\
+            \hline
+            % Drums
+            \rowcolor{drumscolor} Drums           & Kick Drum                   & Pearl Reference 22"x18"                             & No                      \\
+            \rowcolor{drumscolor} Drums           & Snare Drum                  & Pearl Sensitone Steel 14"x???                       & No                      \\
+            \rowcolor{drumscolor} Drums           & Tom Set                     & Pearl Reference - 10"(Rack), 14"(Floor), 16"(Floor) & No                      \\
+            \rowcolor{drumscolor} Drums           & Cymbal Set                  & 1x Hi-Hat, 2x Crash, 1x Ride, 1x Splash, 1x China   & No                      \\
+            \rowcolor{drumscolor} Drums           & Kick Drum Mic               & beyerdynamic TG D71                                 & No                      \\
+            \rowcolor{drumscolor} Drums           & Snare Mic                   & beyerdynamic TG D58                                 & No                      \\
+            \rowcolor{drumscolor} Drums           & Tom Mics                    & 2x beyerdynamic TG D35, 1x Audix D6                 & No                      \\
+            \rowcolor{drumscolor} Drums           & Overhead Mics               & 2x sE Electronics sE7                               & No                      \\
+            \rowcolor{drumscolor} Drums           & Hi-Hat Mic                  & beyerdynamic TG I53                                 & No                      \\
+
+            % Guitar
+            \rowcolor{guitarcolor} Guitar         & Guitar Amp                  & Marshall DSL20CR 20W Combo                          & 230V                    \\
+            \rowcolor{guitarcolor} Guitar         & Guitar Amp Mic              & Sennheiser e906                                     & No                      \\
+            \rowcolor{guitarcolor} Guitar         & Guitar Pedal                & Effektpedale                                        & 230V                    \\
+
+            % Bass
+            \rowcolor{basscolor} Bass             & Bass Amp                    & Fender Rumble 100                                   & 230V                    \\
+
+            % Keys
+            \rowcolor{keyscolor} Keys             & Keytar                      & Alesis Vortex Wireless 2                            & No                      \\
+            \rowcolor{keyscolor} Keys             & Keytar Rack                 & Sound-Source Computer                               & 230V                    \\
+            \rowcolor{keyscolor} Keys             & Keys DI                     & active DI-Box                                       & No                      \\
+
+            % Vocals
+            \rowcolor{vocalscolor} Vocals         & Main Vocal Mic              & Shure SM58                                          & No                      \\
+            \rowcolor{vocalscolor} Vocals         & Backing Vocal Mics          & 2x Shure SM58 (Klon)                                & No                      \\
+
+            % IEM
+            \rowcolor{monitoringcolor} Monitoring & IEM Rack System             & Stage-Split-Rack mit IEM-Rack-Mischpult             & 230V                    \\
+            \rowcolor{monitoringcolor} Monitoring & IEM Transmitters            & 3x wireless                                         & No                      \\
+            \rowcolor{monitoringcolor} Monitoring & IEM Receivers               & 3x wireless                                         & No                      \\
+            \rowcolor{monitoringcolor} Monitoring & wired IEM Beltpack          & Fischer Amps In Ear Monitor BP                      & 230V                    \\
+
+            % System
+            \rowcolor{systemcolor} System         & Subsnake für Drums          & 8-Ch Stage Box                                      & No                      \\
+            \rowcolor{systemcolor} System         & Cable Set                   & Instrument Cables (\& (in Absprache) XLR-Kabel)     & No                      \\
+            \hline
+        \end{tabular}
+    \end{center}
+}
+

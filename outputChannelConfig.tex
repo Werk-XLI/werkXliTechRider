@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              IEM OUTPUT CHANNELS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% AUSGANGSKANÄLE - Signale die aus dem Band Stage-Rack an FOH gehen
+% Beispiele: Die Signale der Mikrofone, DI-Boxen, etc. von der Bühne, die nach dem 
+% Passiv-Splitter im Rack an FOH gehen. Oder Signale wie Backing oder Intro-Tracks, 
+% die direkt aus dem Rackmixer an FOH gehen.
+% Format: \rowcolor{monitoringcolor} Channel & Source & Signal von \\
+% \hline
+%
+% Example:
+% \rowcolor{drumscolor} 1 & Kick Drum & Passiv Splitter \\
+% \hline
+\newcommand{\outputChannelsTable}{%
+    \begin{center}
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|c|p{3cm}|p{6cm}|}
+            \hline
+            \rowcolor{systemcolor}
+            \subsectionstyle{Channel} & \subsectionstyle{Quelle}    & \subsectionstyle{Signal von} \\
+            \hline
+            % Drums
+            \rowcolor{drumscolor} 1   & Kick IN                     & passiv Splitter              \\
+            \rowcolor{drumscolor} 2   & Snare TOP                   & passiv Splitter              \\
+            \rowcolor{drumscolor} 3   & Tom 1                       & passiv Splitter              \\
+            \rowcolor{drumscolor} 4   & Tom 2                       & passiv Splitter              \\
+            \rowcolor{drumscolor} 5   & Tom 3                       & passiv Splitter              \\
+            \rowcolor{drumscolor} 6   & Hi-Hat                      & passiv Splitter              \\
+            \rowcolor{drumscolor} 7   & OH L                        & passiv Splitter              \\
+            \rowcolor{drumscolor} 8   & OH R                        & passiv Splitter              \\
+
+            % Keys
+            \rowcolor{keyscolor} 9    & Keytar DI                   & passiv Splitter              \\
+
+            % Guitar
+            \rowcolor{guitarcolor} 10 & Marshall (Insert Amp Model) & passiv Splitter              \\
+
+            % Bass
+            \rowcolor{basscolor} 11   & Fender Rumble 100           & passiv Splitter              \\
+
+            % Vocals
+            \rowcolor{vocalscolor} 12 & Backing Vocal 1             & passiv Splitter              \\
+            \rowcolor{vocalscolor} 13 & Main Vocal                  & passiv Splitter              \\
+            \rowcolor{vocalscolor} 14 & Backing Vocal 2             & passiv Splitter              \\
+
+            % Tracks
+            \rowcolor{trackscolor} 15 & Tracks L                    & Rack-Mischpult Aux-Out       \\
+            \rowcolor{trackscolor} 16 & Tracks R                    & Rack-Mischpult Aux-Out       \\
+            \hline
+        \end{tabular}
+    \end{center}
+}

@@ -15,7 +15,7 @@
 % - standard:  Band brings most equipment (recommended)  
 % - large:     Concert halls, festivals, complete setup with backups
 
-\documentclass[standard]{techrider}  % MODIFY THIS LINE
+\documentclass{techrider}  % MODIFY THIS LINE
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              BAND INFORMATION                                 %
@@ -40,32 +40,20 @@
 \logo{\includesvg[width=0.25\textwidth]{Images/logo.svg}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              EQUIPMENT OVERRIDES                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Override preset settings if needed:
-% \equipmentOverride{bringKickDrum}{true}       % Force bring kick drum
-% \equipmentOverride{bringGuitarAmp}{false}     % Don't bring guitar amp
-% \equipmentOverride{bringBassDI}{true}         % Always bring bass DI
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              CONFIGURATION LOADING                            %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Load all configurations from separate files
-% (modify equipmentConfig.tex and channelConfig.tex to customize)
-
-\useStandardEquipment                    % Load equipment from equipmentConfig.tex
-\useStandardChannels                     % Load FOH and IEM channels from channelConfig.tex  
-\useStandardVenueRequirements           % Load venue requirements from channelConfig.tex
-
-\useStandardStagePlot
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              DOCUMENT BEGINS                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+\include{bandEquipmentConfig}
+\include{venueRequirementsConfig}
+\include{inputChannelConfig}
+\include{outputChannelConfig}
+\include{stagePlotConfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                   TITLE PAGE                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \maketitle
 
@@ -77,10 +65,10 @@
 
 \subsection{Von der Band mitgebrachte Ausrüstung}
 
-Die folgende Ausrüstung wird von der Band mitgebracht:
+Die folgende Ausrüstung wird von der Band mitgebracht (oder in Absprache von anderen Bands geteilt):
 
 \bandEquipmentTable
-
+\newpage
 \subsection{Von der Location benötigte Ausrüstung}  
 
 Die Location muss folgendes bereitstellen:
@@ -90,7 +78,7 @@ Die Location muss folgendes bereitstellen:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              PATCH PLAN                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 \section{Patch-Plan}
 
 Der Patch-Plan beschreibt den Signalflow von der Audioquelle durch unser IEM-/Stage-Rack bis FOH. \\
@@ -102,7 +90,7 @@ Phantomspeisung für Mikrofone und DI-Boxen wird hier durch unser Monitor-Mischp
 Signale, die in unser IEM-/Stage-Rack fließen:
 
 \inputChannelsTable
-
+\newpage
 \subsection{Kanäle für FOH}
 
 Signale, die aus unserem IEM-/Stage-Rack fließen:
@@ -112,7 +100,7 @@ Signale, die aus unserem IEM-/Stage-Rack fließen:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              STAGE PLOT                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 \section{Bühnenplan}
 
 \drawStagePlot
@@ -120,8 +108,8 @@ Signale, die aus unserem IEM-/Stage-Rack fließen:
 \textbf{Legende:}
 \begin{itemize}
     \item Stromanschlüsse benötigt bei markierten Stellen
-    \item Musikerpositionen wie gezeigt  
-    \item Mindest-Bühnenmasse: 6 m × 4 m
+    \item Musikerpositionen wie gezeigt
+    \item Mindest-Bühnenmasse: 5 m × 3 m
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,7 +127,7 @@ Signale, die aus unserem IEM-/Stage-Rack fließen:
 \subsection{Bühnenaufbau}
 \begin{itemize}
     \item Bühnenmasse: minimum 6 m (Breite) x 4 m (Tiefe)
-    \item Strom: \totalPowerNeeded\ x Schuko (230V) Steckdosen auf der Bühne
+    \item Strom:  x Schuko (230V) Steckdosen auf der Bühne
     \item Mikrofonstative: 6x Galgen-Stative, 2x gerade Stative
     \item angemessene Bühnenbeleuchtung (Performance und Arbeitslicht)
 \end{itemize}

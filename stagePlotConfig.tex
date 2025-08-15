@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              STAGE PLOT CONFIGURATIONS                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\stageWidth}{12}
+\newcommand{\stageHeight}{8}
+
+\newcommand{\drawStagePlot}{%
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            % Stage outline
+            \draw[thick] (0,0) rectangle (\stageWidth,\stageHeight);
+            \node at (\stageWidth/2,\stageHeight+0.5) {\textbf{upstage}};
+            \node at (\stageWidth/2,-0.5) {\textbf{downstage}};
+            \node[rotate=90] at (-0.5,\stageHeight/2) {\textbf{stage right}};
+            \node[rotate=-90] at (\stageWidth+0.5,\stageHeight/2) {\textbf{stage left}};
+            
+            % Equipment positions for standard setup
+            \node[fill=guitarcolor,rectangle,inner sep=4pt] at (\stageWidth/2+0.5,\stageHeight-3.5) {};
+            \node[below] at (\stageWidth/2+0.5,\stageHeight-3.5) {\tiny Guitar-Amp};
+
+            \node[fill=basscolor,rectangle,inner sep=4pt] at (1,\stageHeight/2) {};
+            \node[below] at (1,\stageHeight/2) {\tiny Bass-Amp};
+
+            \node[fill=keyscolor,rectangle,inner sep=4pt] at (\stageWidth-1,\stageHeight/2) {};
+            \node[below] at (\stageWidth-1,\stageHeight/2) {\tiny Keytar-Rack};
+
+            \node[fill=monitoringcolor,rectangle,inner sep=4pt] at (\stageWidth-1,\stageHeight-1) {};
+            \node[below] at (\stageWidth-1,\stageHeight-1) {\tiny IEM Rack};
+
+            % Musician Positions
+            \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (\stageWidth/2,1.5) {};
+            \node[above] at (\stageWidth/2,1.6) {\tiny Guitar};
+            \node at (\stageWidth/2,1.5) {Fabian};
+            \node[below] at (\stageWidth/2,1.4) {\tiny Vox Main};
+
+            \node[fill=drumscolor,circle,inner sep=16pt] at (\stageWidth/2,\stageHeight-2) {};
+            \node at (\stageWidth/2,\stageHeight-2) {Georg};
+            \node[below] at (\stageWidth/2,\stageHeight-2.1) {\tiny Drums};
+
+            \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (\stageWidth-2,1.5) {};
+            \node[above] at (\stageWidth-2,1.6) {\tiny Keytar};
+            \node at (\stageWidth-2,1.5) {Benji};
+            \node[below] at (\stageWidth-2,1.4) {\tiny Vox Back 1};
+
+            \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (2,1.5) {};
+            \node[above] at (2,1.6) {\tiny Bass};
+            \node at (2,1.5) {Eric};
+            \node[below] at (2,1.4) {\tiny Vox Back 2};
+
+            % Power Drops
+            % Drum IEM-Power, etc.
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2,\stageHeight-0.5) {};
+            \node[below] at (\stageWidth/2,\stageHeight-0.5) {\tiny 230V};
+            % IEM-Rack
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth-0.5,\stageHeight-0.5) {};
+            \node[below] at (\stageWidth-0.5,\stageHeight-0.5) {\tiny 230V};
+            % Bass Amp
+            \node[fill=black,circle,inner sep=2pt] at (0.5,\stageHeight/2+0.5) {};
+            \node[below] at (0.5,\stageHeight/2+0.5) {\tiny 230V};
+            % Guitar Amp
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2+0.5,\stageHeight-3) {};
+            \node[below] at (\stageWidth/2+0.5,\stageHeight-3) {\tiny 230V};
+            % Keytar-Rack
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth-0.5,\stageHeight/2+0.5) {};
+            \node[below] at (\stageWidth-0.5,\stageHeight/2+0.5) {\tiny 230V};
+            % Guitar Pedal
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2,0.5) {};
+            \node[below] at (\stageWidth/2,0.5) {\tiny 230V};
+
+        \end{tikzpicture}
+    \end{center}
+}

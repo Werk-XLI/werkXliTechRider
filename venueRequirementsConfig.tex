@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              VENUE REQUIREMENTS                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Add your venue requirements here using the format:
+    % Category & Item & Description \\
+    % \hline
+    %
+    % Example:
+    % Strom & Stromanschlüsse & 4x Schuko (230V) Steckdosen auf der Bühne \\
+    % \hline
+    \newcommand{\venueRequirementsTable}{%
+        \begin{center}
+            \renewcommand{\arraystretch}{1.4}
+            \begin{tabular}{|l|p{4cm}|p{5cm}|}
+                \hline
+                \rowcolor{systemcolor}
+                \subsectionstyle{Kategorie} & \subsectionstyle{Anforderung} & \subsectionstyle{Details} \\
+                \hline
+                Strom & Stromanschlüsse & 6x Schuko (230V) Steckdosen auf der Bühne wie an den markierten Stellen im Stage-Plot \\
+                \hline
+                Bühne & Bühnenmasse & Mindest-Bühnenmasse: 5 m (Breite) x 3 m (Tiefe) da 4 Musiker und equipment auf der Bühne Platz finden müssen. \\
+                \hline
+                PA & PA-Anlage & Der zu bespielenden Fläche angemessene Beschallungsanlage mit ausreichend Leistung \\
+                \hline
+                Mischpult & Professionelles Mischpult & Mindestens 16 Kanäle \\
+                \hline
+                Beleuchtung & Bühnenbeleuchtung & Angemessene Beleuchtung für Performance und Arbeitslicht \\
+                \hline
+                Mikrofonstative & Mikrofonstative & 5x Galgenstative, davon 2 für Drum Overheads \\
+                \hline
+            \end{tabular}
+        \end{center}
+    }

@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                               %
+%                           CHANNEL CONFIGURATION                               %
+%                                                                               %
+%   Define FOH input channels, IEM output channels, and venue requirements      %
+%                                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              FOH INPUT CHANNELS                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% EINGANGSKANÄLE - Signale die von der Soundquelle auf der Bühne in das Band Stage-Rack gehen
+% Das sind z.B. Mikrofone, DI-Boxen, die auf der Bühne sind oder Talkback Mikrofone von FOH
+% Format: \rowcolor{categorycolor} Channel & Source & Mic/DI \\
+% \hline
+%
+% Available colors: drumscolor, guitarcolor, basscolor, keyscolor, 
+%                  vocalscolor, trackscolor, monitoringcolor, systemcolor
+%
+% Example:
+% \rowcolor{drumscolor} 1 & Kick Drum & beyerdynamic TG D71\\
+% \hline
+\newcommand{\inputChannelsTable}{%
+    \begin{center}
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|c|p{3cm}|p{6cm}|}
+            \hline
+            \rowcolor{systemcolor}
+            \subsectionstyle{Channel} & \subsectionstyle{Quelle}    & \subsectionstyle{Mic/DI} \\
+            \hline
+            % Drums
+            \rowcolor{drumscolor} 1   & Kick IN                     & beyerdynamic TG D71      \\
+            \rowcolor{drumscolor} 2   & Snare TOP                   & beyerdynamic TG D58      \\
+            \rowcolor{drumscolor} 3   & Tom 1                       & beyerdynamic TG D35      \\
+            \rowcolor{drumscolor} 4   & Tom 2                       & beyerdynamic TG D35      \\
+            \rowcolor{drumscolor} 5   & Tom 3                       & Audix D6                 \\
+            \rowcolor{drumscolor} 6   & Hi-Hat                      & beyerdynamic TG I53      \\
+            \rowcolor{drumscolor} 7   & OH L                        & sE Electronics sE7       \\
+            \rowcolor{drumscolor} 8   & OH R                        & sE Electronics sE7       \\
+
+            % Keys
+            \rowcolor{keyscolor} 9    & Keytar DI                   & active DI-Box            \\
+
+            % Guitar
+            \rowcolor{guitarcolor} 10 & Marshall (Insert Amp Model) & Sennheiser e906          \\
+
+            % Bass
+            \rowcolor{basscolor} 11   & Fender Rumble 100           & Amp Direct Out           \\
+
+            % Vocals
+            \rowcolor{vocalscolor} 12 & Backing Vocal 1             & Shure SM58               \\
+            \rowcolor{vocalscolor} 13 & Main Vocal                  & Shure SM58               \\
+            \rowcolor{vocalscolor} 14 & Backing Vocal 2             & Shure SM58               \\
+
+            % Spare
+            \rowcolor{unusedcolor} 15 & -                           & -                        \\
+
+            % Talkback
+            \rowcolor{systemcolor} 16 & Talkback to IEMs            & FOH Talkback             \\
+            \hline
+        \end{tabular}
+    \end{center}
+}
