@@ -548,9 +548,25 @@
             % Equipment positions
             \@stageplotitems
 
-            % Power outlets
-            \node[fill=red,circle,inner sep=2pt] at (1,1) {};
-            \node[below] at (1,1) {Steckdose};
+            % Drum IEM-Power, etc.
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2,\stageHeight-0.5) {};
+            \node[below] at (\stageWidth/2,\stageHeight-0.5) {\tiny 230V};
+            % IEM-Rack
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth-0.5,\stageHeight-0.5) {};
+            \node[below] at (\stageWidth-0.5,\stageHeight-0.5) {\tiny 230V};
+            % Bass Amp
+            \node[fill=black,circle,inner sep=2pt] at (0.5,\stageHeight/2+0.5) {};
+            \node[below] at (0.5,\stageHeight/2+0.5) {\tiny 230V};
+            % Guitar Amp
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2+0.5,\stageHeight-3) {};
+            \node[below] at (\stageWidth/2+0.5,\stageHeight-3) {\tiny 230V};
+            % Keytar-Rack
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth-0.5,\stageHeight/2+0.5) {};
+            \node[below] at (\stageWidth-0.5,\stageHeight/2+0.5) {\tiny 230V};
+            % Guitar Pedal
+            \node[fill=black,circle,inner sep=2pt] at (\stageWidth/2,0.5) {};
+            \node[below] at (\stageWidth/2,0.5) {\tiny 230V};
+
         \end{tikzpicture}
     \end{center}
 }
@@ -575,8 +591,6 @@
     \setVenueRequirements{\largeVenueRequirements}%
 }
 \newcommand{\useStandardStagePlot}{\setStagePlotItems{\standardStagePlot}}
-\newcommand{\useSmallStagePlot}{\setStagePlotItems{\smallStagePlot}}
-\newcommand{\useLargeStagePlot}{\setStagePlotItems{\largeStagePlot}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              DOCUMENT STRUCTURE                              %

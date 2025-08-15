@@ -1,31 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                               %
-%                           CHANNEL CONFIGURATION                              %
+%                           CHANNEL CONFIGURATION                               %
 %                                                                               %
-% Define FOH input channels, IEM output channels, and venue requirements       %
+%   Define FOH input channels, IEM output channels, and venue requirements      %
 %                                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              FOH INPUT CHANNELS                              %
+%                              FOH INPUT CHANNELS                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\fohInputChannels}{%
     % EINGANGSKANÄLE - Signale die von der Soundquelle auf der Bühne in das Band Stage-Rack gehen
     % Das sind z.B. Mikrofone, DI-Boxen, die auf der Bühne sind oder Talkback Mikrofone von FOH
-    % Format: \rowcolor{categorycolor} Channel & Source & Microphone/Details \\
+    % Format: \rowcolor{categorycolor} Channel & Source \\
     % \hline
     %
     % Available colors: drumscolor, guitarcolor, basscolor, keyscolor, 
     %                  vocalscolor, trackscolor, monitoringcolor, systemcolor
     %
     % Example:
-    % \rowcolor{drumscolor} 1 & Kick Drum & Beta 52A (Location-Kick) \\
+    % \rowcolor{drumscolor} 1 & Kick Drum \\
     % \hline
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              IEM OUTPUT CHANNELS                             %
+%                              IEM OUTPUT CHANNELS                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\iemOutputChannels}{%
@@ -33,20 +33,20 @@
     % Beispiele: Die Signale der Mikrofone, DI-Boxen, etc. von der Bühne, die nach dem 
     % Passiv-Splitter im Rack an FOH gehen. Oder Signale wie Backing oder Intro-Tracks, 
     % die direkt aus dem Rackmixer an FOH gehen.
-    % Format: \rowcolor{monitoringcolor} Channel & Purpose & Description \\
+    % Format: \rowcolor{monitoringcolor} Channel & Source \\
     % \hline
     %
     % Example:
-    % \rowcolor{monitoringcolor} Aux 1 & IEM Mix 1 & Schlagzeuger \\
+    % \rowcolor{drumscolor} 1 & Kick Drum \\
     % \hline
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              VENUE REQUIREMENTS                              %
+%                              VENUE REQUIREMENTS                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\standardVenueRequirements}{%
-    % Add your German venue requirements here using the format:
+    % Add your venue requirements here using the format:
     % Category & Item & Description \\
     % \hline
     %
@@ -56,7 +56,7 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              SMALL VENUE REQUIREMENTS                        %
+%                              SMALL VENUE REQUIREMENTS                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\smallVenueRequirements}{%
@@ -70,7 +70,7 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              LARGE VENUE REQUIREMENTS                        %
+%                              LARGE VENUE REQUIREMENTS                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\largeVenueRequirements}{%
@@ -84,92 +84,40 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                              STAGE PLOT CONFIGURATIONS                       %
+%                              STAGE PLOT CONFIGURATIONS                        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\standardStagePlot}{%
     % Equipment positions for standard setup
-    \node[fill=drumscolor,circle,inner sep=8pt] at (6,6) {};
-    \node at (6,6.5) {\ifthenelse{\equal{\@language}{german}}{Schlagzeug}{Drums}};
-    
-    \ifthenelse{\boolean{bringGuitarAmp}}{
-        \node[fill=guitarcolor,rectangle,inner sep=4pt] at (2,2) {};
-        \node[below] at (2,2) {\ifthenelse{\equal{\@language}{german}}{Gitarren-Amp}{Guitar Amp}};
-    }{}
-    
-    \ifthenelse{\boolean{bringBassAmp}}{
-        \node[fill=basscolor,rectangle,inner sep=4pt] at (10,2) {};
-        \node[below] at (10,2) {\ifthenelse{\equal{\@language}{german}}{Bass-Amp}{Bass Amp}};
-    }{}
-    
-    \node[fill=keyscolor,rectangle,inner sep=4pt] at (6,3) {};
-    \node[below] at (6,3) {Keyboard};
-    
-    \node[fill=monitoringcolor,rectangle,inner sep=2pt] at (1,4) {};
-    \node[below] at (1,4) {\tiny IEM Rack};
-}
+    \node[fill=guitarcolor,rectangle,inner sep=4pt] at (\stageWidth/2+0.5,\stageHeight-3.5) {};
+    \node[below] at (\stageWidth/2+0.5,\stageHeight-3.5) {\tiny Guitar-Amp};
 
-\newcommand{\smallStagePlot}{%
-    % Equipment positions for small venue setup (intimate venues, clubs)
-    \node[fill=keyscolor,rectangle,inner sep=6pt] at (5,4) {};
-    \node[below] at (5,4) {Keyboard};
-    
-    \node[fill=vocalscolor,circle,inner sep=4pt] at (7,5) {};
-    \node[above] at (7,5) {Vocals};
-    
-    \ifthenelse{\boolean{bringBassAmp}}{
-        \node[fill=basscolor,rectangle,inner sep=4pt] at (9,2) {};
-        \node[below] at (9,2) {Bass Amp};
-    }{}
-    
-    \ifthenelse{\boolean{bringGuitarAmp}}{
-        \node[fill=guitarcolor,rectangle,inner sep=4pt] at (3,2) {};
-        \node[below] at (3,2) {Guitar Amp};
-    }{}
-    
-    % Simple drum setup or cajon
-    \ifthenelse{\boolean{bringKickDrum}}{
-        \node[fill=drumscolor,circle,inner sep=6pt] at (6,6) {};
-        \node at (6,6.5) {Drums};
-    }{
-        \node[fill=drumscolor,rectangle,inner sep=4pt] at (8,3) {};
-        \node[below] at (8,3) {\tiny Cajon};
-    }
-    
-    \node[fill=monitoringcolor,rectangle,inner sep=2pt] at (1,3) {};
-    \node[below] at (1,3) {\tiny Monitor};
-}
+    \node[fill=basscolor,rectangle,inner sep=4pt] at (1,\stageHeight/2) {};
+    \node[below] at (1,\stageHeight/2) {\tiny Bass-Amp};
 
-\newcommand{\largeStagePlot}{%
-    % Equipment positions for large venue setup (concert halls, festivals)
-    \node[fill=drumscolor,circle,inner sep=12pt] at (6,7) {};
-    \node at (6,7.8) {Drums};
-    
-    \node[fill=guitarcolor,rectangle,inner sep=6pt] at (1,2) {};
-    \node[below] at (1,2) {Guitar Amp};
-    
-    \node[fill=basscolor,rectangle,inner sep=6pt] at (11,2) {};
-    \node[below] at (11,2) {Bass Amp};
-    
-    \node[fill=keyscolor,rectangle,inner sep=6pt] at (3,4) {};
-    \node[below] at (3,4) {Keys 1};
-    
-    \ifthenelse{\boolean{bringKeyboard2}}{
-        \node[fill=keyscolor,rectangle,inner sep=4pt] at (9,4) {};
-        \node[below] at (9,4) {Keys 2};
-    }{}
-    
-    \node[fill=monitoringcolor,rectangle,inner sep=4pt] at (0.5,5) {};
-    \node[below] at (0.5,5) {\tiny IEM};
-    
-    % Additional large venue equipment
-    \node[fill=systemcolor,rectangle,inner sep=2pt] at (11.5,5) {};
-    \node[below] at (11.5,5) {\tiny Backup};
-    
-    % Multiple vocal positions for larger productions
-    \node[fill=vocalscolor,circle,inner sep=4pt] at (4,6) {};
-    \node[above] at (4,6) {\tiny BV1};
-    
-    \node[fill=vocalscolor,circle,inner sep=4pt] at (8,6) {};
-    \node[above] at (8,6) {\tiny BV2};
+    \node[fill=keyscolor,rectangle,inner sep=4pt] at (\stageWidth-1,\stageHeight/2) {};
+    \node[below] at (\stageWidth-1,\stageHeight/2) {\tiny Keytar-Rack};
+
+    \node[fill=monitoringcolor,rectangle,inner sep=4pt] at (\stageWidth-1,\stageHeight-1) {};
+    \node[below] at (\stageWidth-1,\stageHeight-1) {\tiny IEM Rack};
+
+    % Musician Positions
+    \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (\stageWidth/2,1.5) {};
+    \node[above] at (\stageWidth/2,1.6) {\tiny Guitar};
+    \node at (\stageWidth/2,1.5) {Fabian};
+    \node[below] at (\stageWidth/2,1.4) {\tiny Vox Main};
+
+    \node[fill=drumscolor,circle,inner sep=16pt] at (\stageWidth/2,\stageHeight-2) {};
+    \node at (\stageWidth/2,\stageHeight-2) {Georg};
+    \node[below] at (\stageWidth/2,\stageHeight-2.1) {\tiny Drums};
+
+    \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (\stageWidth-2,1.5) {};
+    \node[above] at (\stageWidth-2,1.6) {\tiny Keytar};
+    \node at (\stageWidth-2,1.5) {Benji};
+    \node[below] at (\stageWidth-2,1.4) {\tiny Vox Back 1};
+
+    \node[fill=vocalscolor,circle,inner sep=14.5pt,draw=black] at (2,1.5) {};
+    \node[above] at (2,1.6) {\tiny Bass};
+    \node at (2,1.5) {Eric};
+    \node[below] at (2,1.4) {\tiny Vox Back 2};
 }
